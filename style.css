@@ -1,0 +1,43 @@
+ 
+ body{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+
+ }
+ .hello-css {
+    display: block;
+
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.zeca::after{
+    content: "Hello World (with CSS styling)";
+    color: blue;
+}
+
+  .text-3:before {
+    content: "Hello World (with CSS styling)";
+    color: #f00;
+  }
+
+
+  .text-8 {
+   
+    font-weight: bold;
+    text-decoration: underline;
+    color: #f60;
+  }
+
+
+  .text-9 {
+   
+    color: #6f0;
+  }
+
+ 
+  .text-10 {
+   
+    color: #0ff;
+  }
