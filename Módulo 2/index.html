@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="calculator">
+        <div class="screen">
+          <div class="result"></div>
+        </div>
+        <div class="clean">
+            <!-- <button onclick="clearLast()">CE</button> -->
+            <button onclick="clearAll()">C</button>
+        </div>
+        <div class="buttons"> 
+          <button  onclick="addToScreen(7)">7</button>
+          <button  onclick="addToScreen(8)">8</button>
+          <button  onclick="addToScreen(9)">9</button>
+          <button class="operator" onclick="addToScreen('/')">/</button>
+          <button  onclick="addToScreen(4)">4</button>
+          <button  onclick="addToScreen(5)">5</button>
+          <button  onclick="addToScreen(6)">6</button>
+          <button class="operator" onclick="addToScreen('*')">*</button>
+          <button  onclick="addToScreen(1)">1</button>
+          <button  onclick="addToScreen(2)">2</button>
+          <button  onclick="addToScreen(3)">3</button>
+          <button class="operator" onclick="addToScreen('-')">-</button>
+          <button  onclick="addToScreen(0)">0</button>
+          <button  onclick="addToScreen('.')">.</button>
+          <button class="equals" onclick="calculate()">=</button>
+          <button class="operator" onclick="addToScreen('+')">+</button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
