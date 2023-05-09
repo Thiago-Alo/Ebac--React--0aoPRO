@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="exercicio.css">
+</head>
+<body>
+    <form id="formulario">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+      
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+      
+        <label for="idade">Idade:</label>
+        <input type="number" id="idade" name="idade" required>
+      
+        <label for="sexo">Sexo:</label>
+        <select id="sexo" name="sexo">
+          <option value="masculino">Masculino</option>
+          <option value="feminino">Feminino</option>
+          <option value="outro">Outro</option>
+        </select>
+
+        <label>Interesses:</label>
+        <div class="cont">
+            <input type="checkbox" id="interesse1" name="interesse1" value="musica">
+            <label for="interesse1">Música</label>
+            <input type="checkbox" id="interesse2" name="interesse2" value="esporte">
+            <label for="interesse2">Esporte</label>
+            <input type="checkbox" id="interesse3" name="interesse3" value="cinema">
+            <label for="interesse3">Cinema</label>
+        </div>
+
+        <label>Gosta de programação?</label>
+        <div class="cont">
+            <input type="radio" id="sim" name="programacao" value="sim">
+            <label for="sim">Sim</label>
+            <input type="radio" id="nao" name="programacao" value="nao">
+            <label for="nao">Não</label>
+        </div>
+        <button type="submit" id="botao-submit">Enviar</button>
+      </form>
+      
+      <div id="loading" style="display:none;">Carregando...</div>
+      
+      <table id="tabela-respostas" style="display:none;">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Idade</th>
+            <th>Sexo</th>
+            <th>Interesses</th>
+            <th>Gosta de programação?</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      
+
+
+    <script src="exercicio.js"></script>
+</body>
+</html>
