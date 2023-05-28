@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import '../index.css'
-import Display from './Display'
-import Botao from './Botao'
+import '../global.css'
+import Display from '../display/Display'
+import Botao from '../button/Botao'
 
 // CALCULATOR BODY
 export default function Calculadora() {
