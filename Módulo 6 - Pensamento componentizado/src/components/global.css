@@ -30,7 +30,7 @@ h2 { font-size: 2rem; padding: 0 6px 20px; font-family: 'Pacifico', cursive; col
 @import "./calculadora/calculadora.css";
 
 /* ------------- display ------------- */
-@import "./display/display.css";
+@import "./visor/visor.css";
 
 /* ------------- button ------------- */
-@import "./button/button.css";
+@import "./botao/botao.css";
