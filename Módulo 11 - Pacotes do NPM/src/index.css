@@ -1,0 +1,16 @@
+@import "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick-theme.css";
+a {
+  color: black;
+  text-decoration: none;
+ }
+
+ img {
+  max-height: 200px;
+  margin: 0px auto
+ }
+ 
+ .Carousel {
+  max-width: min(80vw, 500px);
+  margin: 0 auto;
+ }
