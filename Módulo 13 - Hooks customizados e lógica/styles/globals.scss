@@ -1,0 +1,31 @@
+@import "../public/fonts/fonts.scss";
+@import "./reset_n_vars.scss";
+@import "../pages/components/Forms/Forms.scss";
+@import "../pages/components/TextInput/TextInput.scss";
+@import "../pages/components/Header/Header.scss";
+
+html,
+body{
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+main{
+  width: 100vw; 
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  @media (max-width:1000px){
+    flex-direction: column;
+  }
+}
+
+html{
+  background:var(--bgColor);
+}
+
+:focus{
+  outline: 0;
+}
+
+@import ".././pages/components/TextInput/TextInput.scss";
