@@ -18,7 +18,7 @@ export default class Home extends React.Component {
     return (
       <main>
           <Forms>
-            <Header title="FORMS" subtitle="with hoc's"/>
+            <Header title="FORMS" subtitle="Form"/>
             <TextInputWithValidation name="user"/>
             <EmailInput/>
             <TextInputWithValidation name="password"/>
