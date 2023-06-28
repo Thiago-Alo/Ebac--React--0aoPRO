@@ -1,0 +1,177 @@
+--Alteração no componente Button
+De
+onChange?: Function;
+const onChange = props.onChange?props.onChange:()=>{};
+  return (
+  return (
+    <div className={`neo-button`}>
+    <div className={`neo-button`}>
+      <button
+      <button
+        onChange={e=>onChange(e)}
+        type={props.type}
+        onClick={(e) => (props.onClick ? props.onClick(e) : {})}
+        onChange={(e) => (props.onChange ? props.onChange(e) : {})}
+        onKeyDown={(e) => (props.onKeyDown ? props.onKeyDown(e) : {})}
+        className={`${variation} ${width}`}>
+        className={`${variation} ${width}`}>
+        {props.children}
+        {props.children}
+        {Icon}
+        {Icon}
+        {props.variation == 'bt-line' && <span className='bt-line'></span>}
+        {props.variation == 'bt-line' && <span className='bt-line'></span>}
+      </button>
+      </button>
+    </div>
+Para
+type?: "button"|"submit"|"reset"|undefined;
+ return (
+    <div className={`neo-button`}>
+    <div className={`neo-button`}>
+      <button
+      <button
+        onChange={e=>onChange(e)}
+        type={props.type}
+        onClick={(e) => (props.onClick ? props.onClick(e) : {})}
+        onChange={(e) => (props.onChange ? props.onChange(e) : {})}
+        onKeyDown={(e) => (props.onKeyDown ? props.onKeyDown(e) : {})}
+        className={`${variation} ${width}`}>
+        className={`${variation} ${width}`}>
+        {props.children}
+        {props.children}
+        {Icon}
+        {Icon}
+        {props.variation == 'bt-line' && <span className='bt-line'></span>}
+        {props.variation == 'bt-line' && <span className='bt-line'></span>}
+      </button>
+      </button>
+    </div>
+    </div>
+
+--Alteração dos Cards 
+De
+interface CardProps {
+Para
+interface CardProps extends General{
+
+--Alteração no componente CardDescriptionBox
+De
+interface CardDescriptionBoxProps{
+Para
+import General from '../generalInterface';
+interface CardDescriptionBoxProps extends General{
+
+--Alteração do CardImgBox
+De
+interface CardImgBox {
+Para
+import General from '../generalInterface';
+interface CardImgBox extends General{
+
+--Container
+De
+interface ContainerProps {
+  variation?: string;
+  children?: any;
+  sx?: any;
+}
+
+const Container: FunctionComponent<ContainerProps> = (props) => {
+Para
+import General from '../generalInterface';
+const Container: FunctionComponent<General> = (props) => {
+
+--RadioGroup
+Dr
+export interface RadioGroupProps{
+Para
+import General from "../generalInterface";
+export interface RadioGroupProps extends General{
+
+--Select Input
+Para
+import General from "../generalInterface";
+interface SelectInputProps extends General{
+  disable: boolean;
+  disable: boolean;
+  isLoading: boolean;
+  isLoading: boolean;
+  title: string;
+  title: string;
+  id: string;
+  options: string[];
+  options: string[];
+  sx?: any;
+  onChange?: (e: SyntheticEvent) => void;
+}
+}
+
+
+const SelectInput: FunctionComponent<SelectInputProps> = (props)=> {
+const SelectInput: FunctionComponent<SelectInputProps> = (props)=> {
+  return (
+  return (
+    <div
+    <div
+      id={props.id}
+      id={props.id}
+      className={'neo-input-select' + (props.disable ? ' disable' : '')}
+      className={'neo-input-select' + (props.disable ? ' disable' : '')}
+      style={props.sx}
+      style={props.sx}
+      onChange={props.onChange?props.onChange:()=>{}}
+      onChange={props.onChange?props.onChange:()=>{}}
+      >
+      >
+      <label>
+      <label>
+        {props.title}
+        {props.title}
+        {props.isLoading && (
+        {props.isLoading && (
+          <div className='loading'>
+          <div className='loading'>
+            <span></span>
+            <span></span>
+          </div>
+          </div>
+        )}
+        )}
+        <select
+        <select
+          name={props.id}
+          name={props.id}
+          style={{ display: props.isLoading ? 'none' : 'block' }}>
+          style={{ display: props.isLoading ? 'none' : 'block' }}>
+          {props.options.map((tipo, index) => {
+          {props.options.map((tipo, index) => {
+            return (
+            return (
+              <option key={index}>
+              <option key={index}>
+
+
+
+--E ETC
+
+--Criado generalInterface
+
+import React from "react";
+
+export default interface General {
+  onChange?: (e: React.FormEvent<HTMLInputElement| HTMLButtonElement | HTMLDivElement>) => void;
+  onClick?: (
+    e: React.MouseEvent<HTMLLabelElement | HTMLInputElement| HTMLButtonElement | HTMLDivElement>
+  ) => void;
+  onKeyDown?: (
+    e: React.KeyboardEvent<HTMLLabelElement | HTMLInputElement| HTMLButtonElement | HTMLDivElement>
+  ) => void;
+  onBlur?: (
+    e: React.FocusEvent<HTMLLabelElement | HTMLInputElement| HTMLButtonElement | HTMLDivElement>
+  ) => void;
+  id?: string;
+  children?: any;
+  variation?: string;
+  sx?:any;
+}
