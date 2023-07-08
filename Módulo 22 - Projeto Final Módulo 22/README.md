@@ -1,23 +1,3 @@
-Todo list: https://kemtatam.github.io/Todo-list-react
+Ebac - React 0 ao Pro - MOdulo 22
 
-## Возможности:
-1. Добавить заметку
-2. Удалить заметку
-3. Редактировать заметку
-4. Изменить статус заметки
-5. Отфильтровать заметки по статусу
-6. Найти нужную заметку
-7. Отсортировать заметки по названию
-
-## Особенности:
-1. Сохранение в локальном хранилище
-2. Основной функционал покрыт тестами
-3. Присутствует статистика выполненных заданий
-
-## Используемые технологии:
-React, Redux Toolkit \
-TypeScript \
-Jest
-
-## Запуск:
-### `npm i && npm run start`
+Projeto Final - Desenvolver uma Aplicação TodoList com React, Ts e teste com Jest. 
