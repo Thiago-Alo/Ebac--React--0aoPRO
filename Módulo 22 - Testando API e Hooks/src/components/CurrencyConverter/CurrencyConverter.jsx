@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
 import './CurrencyConverter.css';
-
 import { 
   Container, 
   Navbar,
@@ -15,11 +13,11 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
-
 import CurrencyOptions from '../CurrencyOptions/CurrencyOptions'
 
 function CurrencyConverter() {
   const FIXER_URL = 'http://data.fixer.io/api/latest?access_key=eba7130a5b2d720ce43eb5fcddd47cc3'
+  const CONVERSION_STORAGE_KEY = 'currency-converter.conversion'
   
   const [quantity, setQuantity] = useState(1)
   const [currencyFrom, setCurrencyFrom] = useState('USD')
@@ -30,6 +28,13 @@ function CurrencyConverter() {
   const [conversionResult, setConversionResult] = useState('')
   const [showError, setShowError] = useState(false)
   
+  useEffect(() => {
+    const storedConversion = localStorage.getItem(CONVERSION_STORAGE_KEY);
+    if (storedConversion) {
+      setConversionResult(storedConversion);
+    }
+  }, []);
+
   function handleQuantity(event) {
     setQuantity(event.target.value)
   }
@@ -83,32 +88,27 @@ function CurrencyConverter() {
         }
 
         setShowError(false)
-        setConversionResult(`${quantity} ${currencyFrom} = ${conversion} ${currencyTo}`)
-        setShowModal(true)
-        setShowSpinner(false)
+        const conversionResultText = `${quantity} ${currencyFrom} = ${conversion} ${currencyTo}`;
+        setConversionResult(conversionResultText);
+        setShowModal(true);
+        setShowSpinner(false);
+        localStorage.setItem(CONVERSION_STORAGE_KEY, conversionResultText);
       }).catch(error => error())
     }
   }
 
   return (
     <React.Fragment>
-      <Navbar 
-        bg="primary" 
-        variant="dark"
-      >
+      <Navbar bg="primary" variant="dark">
         <Navbar.Brand>Currency Converter</Navbar.Brand>
       </Navbar>
 
       <Container style={{ marginTop: '2%' }}>
         <Alert variant="danger" show={ showError }>
-          Ops... a error ocurred, please try again
+          Oops... an error occurred, please try again
         </Alert>
 
-        <Form 
-          onSubmit={ handleSubmit } 
-          noValidate 
-          validated={ validatedForm }
-        >
+        <Form onSubmit={ handleSubmit } noValidate validated={ validatedForm }>
           <Form.Row>
             <Col sm="3">
               <Form.Label>Quantity</Form.Label>
@@ -130,18 +130,13 @@ function CurrencyConverter() {
               </Form.Control>
             </Col>
 
-            <Col 
-              sm="1" 
-              className="text-center" 
-              style={{ paddingTop: '35px' }}
-            >
+            <Col sm="1" className="text-center" style={{ paddingTop: '35px' }}>
               <FontAwesomeIcon icon={ faAngleDoubleRight } />
             </Col>
 
             <Col sm="3">
               <Form.Label>To</Form.Label>
-              <Form.Control 
-                as="select"
+              <Form.Control as="select"
                 value={ currencyTo }
                 onChange={ handleCurrencyTo }
               >
@@ -149,15 +144,8 @@ function CurrencyConverter() {
               </Form.Control>
             </Col>
 
-            <Col 
-              sm="2" 
-              style={{ paddingTop: '32px' }}
-            >
-              <Button 
-                type="submit" 
-                variant="success" 
-                data-testid="btn-conversion"
-              >
+            <Col sm="2" style={{ paddingTop: '32px' }}>
+              <Button type="submit" variant="success" data-testid="btn-conversion">
                 <span className={ showSpinner ? '' : 'hidden' }>
                   <Spinner animation="border" size="sm" /> 
                 </span>
@@ -170,10 +158,7 @@ function CurrencyConverter() {
           </Form.Row>
         </Form>
 
-        <Modal 
-          show={ showModal } 
-          onHide={ handleCloseModal } 
-        >
+        <Modal show={ showModal } onHide={ handleCloseModal }>
           <Modal.Header closeButton>
             <Modal.Title>
               Conversion Result
@@ -185,10 +170,7 @@ function CurrencyConverter() {
           </Modal.Body>
 
           <Modal.Footer>
-            <Button 
-              variant="success" 
-              onClick={ handleCloseModal }
-            >
+            <Button variant="success" onClick={ handleCloseModal }>
               New Conversion
             </Button>
           </Modal.Footer>
